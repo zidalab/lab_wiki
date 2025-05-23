@@ -10,9 +10,13 @@ aux_links:
 nav:
   - title: Home
     url: /
-  - title: Meeting
+  - title: 开会
     url: /docs/meeting
-  - title: Experiment
+  - title: 实验
     url: /docs/experiment
-  - title: Writing
+  - title: 写作与画图
     url: /docs/writing
+  - title: 培训
+    url: /docs/training
+  - title: 其他
+    url: /docs/misc
