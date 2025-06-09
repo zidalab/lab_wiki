@@ -104,14 +104,12 @@ nav_order: 2
 
 > 以下软件请掌握基本操作，进阶技能可在读研期间逐步提升：
 
-1. **EndNote**（深大正版）
-2. **Adobe Illustrator**  
-   [教程视频](https://www.bilibili.com/video/BV1Zb4y1S7jV/)
+1. **EndNote**: [深大正版](https://www.lib.szu.edu.cn/er/endnote)
+2. **Adobe Illustrator**: [教程视频](https://www.bilibili.com/video/BV1Zb4y1S7jV/)
 3. **Origin**
 4. **AutoCAD**
 5. **ImageJ**
-6. **SolidWorks**  
-   [教程视频](https://www.bilibili.com/video/BV1df4y1z7iR/)
+6. **SolidWorks**: [教程视频](https://www.bilibili.com/video/BV1df4y1z7iR/)
 7. **Adobe Photoshop**
 
 ---
@@ -172,13 +170,32 @@ nav_order: 2
 
 ### 🧬 单细胞转录组测序 ###
 
-#### **1. Combinatorial perturbation sequencing on single cells using microwell-based droplet random pairing**  
+#### **1. Droplet Barcoding for Single-Cell Transcriptomics Applied to Embryonic Stem Cells**  
+**作者：** A. Klein, L. Mazutis, I. Akartuna, N. Tallapragada, A. Veres, V. Li, et al.  
+**期刊：** *Cell*, 161, 1187-1201, 2015  
+🔗 [DOI: 10.1016/j.cell.2015.04.044](https://doi.org/10.1016/j.cell.2015.04.044)
+
+> 采用液滴条形码技术实现高通量单细胞转录组测序，推动了单细胞测序技术的发展。
+
+
+#### **2. spinDrop: a droplet microfluidic platform to maximise single-cell sequencing information content**  
+**作者：** J. De Jonghe, T. S. Kaminski, D. B. Morse, M. Tabaka, A. L. Ellermann, T. N. Kohler, et al.  
+**期刊：** *Nature Communications*, 14(1), 4788, 2023  
+🔗 [DOI: 10.1038/s41467-023-40322-w](https://doi.org/10.1038/s41467-023-40322-w)
+
+> 基于液滴分选 + pico-injection平台，提升单细胞测序信息量和通量。
+
+#### **3. Combinatorial perturbation sequencing on single cells using microwell-based droplet random pairing**  
 **作者：** Run Xie, et al. <br>
 **期刊：** *Biosensors and Bioelectronics*, 220, 114913, 2023  
 🔗 [DOI: 10.1016/j.bios.2022.114913](https://doi.org/10.1016/j.bios.2022.114913)
 
 > 基于微孔液滴配对的单细胞扰动测序策略，提升组合筛选的规模和效率。
 
----
 
 
+#### **4. 10X scRNA-seq 反应流程讲解**
+
+🔗 [10X Chromium 单细胞转录组测序反应流程详解](https://teichlab.github.io/scg_lib_structs/methods_html/10xChromium3.html)
+
+> 讲解单细胞测序的反应流程与分子生物学原理
