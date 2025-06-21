@@ -170,13 +170,27 @@ nav_order: 2
 
 ### 🧬 单细胞转录组测序 ###
 
+### 预备知识 ###
+- **二代测序介绍**  
+  主讲：Eric Chow (UCSF)  
+  [B站系列课程](https://space.bilibili.com/1067412007/lists/349604)
+
+- **单细胞测序介绍**  
+  主讲：Eric Chow (UCSF)  
+  [B站视频教程](https://www.bilibili.com/video/BV1q34y1m7FC/)
+
+- **10X 单细胞转录组反应流程讲解**  
+  整理：陈曦（南科大）  
+  [10X Chromium 单细胞转录组测序反应流程详解](https://teichlab.github.io/scg_lib_structs/methods_html/10xChromium3.html)
+
+### 文献 ###
+
 #### **1. Droplet Barcoding for Single-Cell Transcriptomics Applied to Embryonic Stem Cells**  
 **作者：** A. Klein, L. Mazutis, I. Akartuna, N. Tallapragada, A. Veres, V. Li, et al.  
 **期刊：** *Cell*, 161, 1187-1201, 2015  
 🔗 [DOI: 10.1016/j.cell.2015.04.044](https://doi.org/10.1016/j.cell.2015.04.044)
 
 > 采用液滴条形码技术实现高通量单细胞转录组测序，推动了单细胞测序技术的发展。
-
 
 #### **2. spinDrop: a droplet microfluidic platform to maximise single-cell sequencing information content**  
 **作者：** J. De Jonghe, T. S. Kaminski, D. B. Morse, M. Tabaka, A. L. Ellermann, T. N. Kohler, et al.  
@@ -192,10 +206,3 @@ nav_order: 2
 
 > 基于微孔液滴配对的单细胞扰动测序策略，提升组合筛选的规模和效率。
 
-
-
-#### **4. 10X scRNA-seq 反应流程讲解**
-
-🔗 [10X Chromium 单细胞转录组测序反应流程详解](https://teichlab.github.io/scg_lib_structs/methods_html/10xChromium3.html)
-
-> 讲解单细胞测序的反应流程与分子生物学原理
