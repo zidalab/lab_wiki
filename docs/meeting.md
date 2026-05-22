@@ -76,77 +76,67 @@ nav_order: 3
 
 ### 📚 组会日程安排
 
-| 组会日期⏰       | 课题汇报 🎤 | 文献汇报 📖 |
-|-----------------|-------------|-------------|
-| 2026/2/27       | 晓娜        | 振栩        |
-| 2026/3/6        | 翊思        | 俊男        |
-| 2026/3/13       | 无组会（预答辩） |            |
-| 2026/3/20       | 华儿        |             |
-| 2026/3/27       | 佳兆        | 文楷        |
-| 2026/4/2        | 雨憧        | 嘉盈        |
-| 2026/4/10       | 晓娜        | 振栩        |
-| 2026/4/17       | 无组会（出差） |            |
-| 2026/4/24       | 翊思        | 俊男        |
-| 2026/5/1        | 无组会（劳动节） |            |
-| 2026/5/8        | 华儿        | 佳兆        |
-| 2026/5/15       | 文楷        | 雨憧        |
-| 2026/5/22       | 嘉盈        | 晓娜        |
-| 2026/5/29       | 振栩        | 翊思        |
-| 2026/6/5        | 俊男        | 华儿        |
-| 2026/6/12       | 佳兆        | 文楷        |
-| 2026/6/19       | 雨憧        | 嘉盈        |
-| 2026/6/26       | 无组会（端午节） |            |
-| 2026/7/3        | 晓娜        | 振栩        |
-| 2026/7/10       | 翊思        | 俊男        |
-| 2026/7/17       | 华儿        | 雨憧        |
-| 2026/7/24       | 嘉盈        | 晓娜        |
-| 2026/7/31       | 振栩        | 翊思        |
-| 2026/8/7        | 俊男        | 华儿        |
-| 2026/8/14       | 雨憧        | 嘉盈        |
-| 2026/8/21       | 晓娜        | 振栩        |
-| 2026/8/28       | 翊思        | 俊男        |
+<table class="meeting-schedule">
+  <thead>
+    <tr>
+      <th>组会日期⏰</th>
+      <th>课题汇报 🎤</th>
+      <th>文献汇报 📖</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for meeting in site.data.group_meetings %}
+    <tr data-meeting-date="{{ meeting.date }}" hidden>
+      <td>{{ meeting.date | date: "%Y/%-m/%-d" }}</td>
+      <td>{{ meeting.project }}</td>
+      <td>{{ meeting.literature }}</td>
+    </tr>
+{% endfor %}
+    <tr data-empty-schedule hidden>
+      <td>暂无近期安排</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
+<script>
+  (function () {
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
 
+    var startDate = new Date(today);
+    startDate.setMonth(startDate.getMonth() - 1);
 
+    var endDate = new Date(today);
+    endDate.setMonth(endDate.getMonth() + 2);
 
+    var visibleCount = 0;
+    var nextRow = null;
+    var nextTime = Infinity;
+    var rows = document.querySelectorAll("[data-meeting-date]");
 
+    rows.forEach(function (row) {
+      var meetingDate = new Date(row.getAttribute("data-meeting-date") + "T00:00:00");
+      var shouldShow = meetingDate >= startDate && meetingDate <= endDate;
+      row.hidden = !shouldShow;
+      row.classList.remove("next-meeting");
+      if (shouldShow) {
+        visibleCount += 1;
+      }
+      if (shouldShow && meetingDate >= today && meetingDate.getTime() < nextTime) {
+        nextTime = meetingDate.getTime();
+        nextRow = row;
+      }
+    });
 
+    if (nextRow) {
+      nextRow.classList.add("next-meeting");
+    }
 
-
-
-
-
-<!-- 
-| 6月19日（周四）  | 佳兆        | 文楷        |
-| 6月26日（周四）  | **无组会**  |             |
-| 7月3日（周四）   | 雨憧        | 嘉盈        |
-| 7月10日（周四）  | 晓娜        | 振栩        |
-| 7月17日（周四）  | **无组会**  |             |
-| 7月24日（周四）  | **无组会**  |             |
-| 7月31日（周四）  | **无组会**  |             |
-| 8月7日（周四）   |  俊男      |翊思（个人介绍）  |
-| 8月14日（周四）  | 华儿（个人介绍）|  | 
-| 8月21日（周四）  |          | 佳兆        | 
-| 2025/8/28  | **无组会**  |             |
-| 2025/9/4   | 文楷、嘉盈    | 雨憧        |
-| 2025/9/11  | 振栩     | 晓娜     |
-| 2025/9/18  | 俊男     | 翊思     |
-| 2025/9/25  | 华儿     |          |
-| 2025/10/2  | **无组会** |        |
-| 2025/10/10 | 佳兆   | 文楷   |
-| 2025/10/17 | 雨憧   | 嘉盈   |
-| 2025/10/24 | 晓娜   | 振栩   |
-| 2025/10/31 | 翊思   | 俊男   |
-| 2025/11/7  | **无组会** |        |
-| 2025/11/14 | 华儿   |佳兆（参会总结）  |
-| 2025/11/21 | **无组会** |        |
-| 2025/11/28 | 文楷   | 佳兆   |
-| 2025/12/5  | 嘉盈   | 雨憧   |
-| 2025/12/12 | 振栩   | 晓娜   |
-| 2025/12/19 | 俊男   | 翊思   |
-| 2025/12/26 | 华儿   |        |
-| 2026/1/2   | **无组会** |        |
-| 2026/1/9   | 佳兆   | 文楷   |
-| 2026/1/16  | 雨憧   | 嘉盈   |
-| 2026/2/27  | 晓娜   | 振栩   |
--->
+    var emptyRow = document.querySelector("[data-empty-schedule]");
+    if (emptyRow) {
+      emptyRow.hidden = visibleCount > 0;
+    }
+  })();
+</script>

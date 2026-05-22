@@ -1,6 +1,7 @@
 title: ZidaLab Wiki
 description: Lab Guide for ZidaLab members
 theme: just-the-docs
+color_scheme: szu
 
 url: https://zidalab.github.io/lab_wiki
 
@@ -12,10 +13,6 @@ nav:
     url: /
   - title: 开会
     url: /docs/meeting
-  - title: 实验
-    url: /docs/experiment
-  - title: 写作与画图
-    url: /docs/writing
   - title: 培训
     url: /docs/training
   - title: 其他

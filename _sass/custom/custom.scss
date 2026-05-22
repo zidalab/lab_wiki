@@ -1,0 +1,125 @@
+:root {
+  --zida-red: #b1192a;
+  --zida-red-dark: #7f1220;
+  --zida-coral: #ef7b5c;
+  --zida-gold: #d99a2b;
+  --zida-green: #2f7d68;
+  --zida-ink: #33272a;
+}
+
+.site-title {
+  color: var(--zida-red-dark);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.site-header {
+  border-bottom: 1px solid #f0c7bd;
+}
+
+.side-bar {
+  background:
+    linear-gradient(180deg, rgba(177, 25, 42, 0.08), rgba(239, 123, 92, 0.05) 42%, rgba(255, 250, 247, 0.95)),
+    #fff2ec;
+}
+
+.nav-list .nav-list-item .nav-list-link {
+  border-radius: 6px;
+  color: #6b3036;
+}
+
+.nav-list .nav-list-item .nav-list-link:hover,
+.nav-list .nav-list-item .nav-list-link.active {
+  background: rgba(177, 25, 42, 0.11);
+  color: var(--zida-red-dark);
+}
+
+.main-content h1 {
+  color: var(--zida-red-dark);
+  padding-bottom: 0.35rem;
+  border-bottom: 3px solid rgba(177, 25, 42, 0.24);
+}
+
+.main-content h2 {
+  color: var(--zida-red);
+}
+
+.main-content h3 {
+  color: var(--zida-green);
+}
+
+.main-content a {
+  text-decoration-color: rgba(177, 25, 42, 0.28);
+  text-underline-offset: 0.16em;
+}
+
+.main-content a:hover {
+  color: var(--zida-red-dark);
+  text-decoration-color: var(--zida-red);
+}
+
+.main-content blockquote {
+  border-left: 4px solid var(--zida-coral);
+  background: #fff2ec;
+  border-radius: 0 6px 6px 0;
+}
+
+.main-content table {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.main-content th {
+  background: #b1192a;
+  color: #fff;
+}
+
+.main-content tr:nth-child(even) td {
+  background: rgba(239, 123, 92, 0.06);
+}
+
+.main-content .meeting-schedule {
+  width: auto;
+  min-width: min(100%, 34rem);
+  font-size: 0.92rem;
+}
+
+.main-content .meeting-schedule th,
+.main-content .meeting-schedule td {
+  padding: 0.35rem 0.55rem;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.main-content .meeting-schedule tr.next-meeting td {
+  background: #fff0b8;
+  color: #5a1218;
+  font-weight: 700;
+  box-shadow: inset 4px 0 0 var(--zida-gold);
+}
+
+.main-content code {
+  color: #7f1220;
+}
+
+.btn-primary {
+  background: var(--zida-red);
+  background-image: linear-gradient(135deg, var(--zida-red), #d63f35);
+}
+
+.search-input {
+  border-radius: 6px;
+}
+
+.label,
+.label-blue,
+.label-green,
+.label-purple,
+.label-red,
+.label-yellow {
+  border-radius: 4px;
+}
+
+hr {
+  border-bottom-color: #f0c7bd;
+}
