@@ -85,11 +85,11 @@ nav_order: 3
     </tr>
   </thead>
   <tbody>
-{% for meeting in site.data.group_meetings %}
-    <tr data-meeting-date="{{ meeting.date }}" hidden>
-      <td>{{ meeting.date | date: "%Y/%-m/%-d" }}</td>
-      <td>{{ meeting.project }}</td>
-      <td>{{ meeting.literature }}</td>
+{% for meeting_date in site.data.group_meetings.dates %}
+    <tr data-meeting-date="{{ meeting_date }}" hidden>
+      <td>{{ meeting_date | date: "%Y/%-m/%-d" }}</td>
+      <td data-project-speaker></td>
+      <td data-literature-speaker></td>
     </tr>
 {% endfor %}
     <tr data-empty-schedule hidden>
@@ -115,16 +115,43 @@ nav_order: 3
     var nextRow = null;
     var nextTime = Infinity;
     var rows = document.querySelectorAll("[data-meeting-date]");
+    var speakerOrder = [
+{% for speaker_pair in site.data.group_meetings.speaker_order %}
+      {{ speaker_pair | jsonify }}{% unless forloop.last %},{% endunless %}
+{% endfor %}
+    ];
+    var cancellations = {
+{% for cancellation in site.data.group_meetings.cancellations %}
+      {{ cancellation[0] | jsonify }}: {{ cancellation[1] | jsonify }}{% unless forloop.last %},{% endunless %}
+{% endfor %}
+    };
+    var speakerIndex = 0;
 
     rows.forEach(function (row) {
-      var meetingDate = new Date(row.getAttribute("data-meeting-date") + "T00:00:00");
+      var dateKey = row.getAttribute("data-meeting-date");
+      var meetingDate = new Date(dateKey + "T00:00:00");
+      var projectCell = row.querySelector("[data-project-speaker]");
+      var literatureCell = row.querySelector("[data-literature-speaker]");
+      var cancellationReason = cancellations[dateKey];
+      var isCanceled = Object.prototype.hasOwnProperty.call(cancellations, dateKey);
       var shouldShow = meetingDate >= startDate && meetingDate <= endDate;
+
+      if (isCanceled) {
+        projectCell.textContent = cancellationReason ? "无组会（" + cancellationReason + "）" : "无组会";
+        literatureCell.textContent = "";
+      } else {
+        var speakers = speakerOrder[speakerIndex] || ["", ""];
+        projectCell.textContent = speakers[0] || "";
+        literatureCell.textContent = speakers[1] || "";
+        speakerIndex += 1;
+      }
+
       row.hidden = !shouldShow;
       row.classList.remove("next-meeting");
       if (shouldShow) {
         visibleCount += 1;
       }
-      if (shouldShow && meetingDate >= today && meetingDate.getTime() < nextTime) {
+      if (shouldShow && !isCanceled && meetingDate >= today && meetingDate.getTime() < nextTime) {
         nextTime = meetingDate.getTime();
         nextRow = row;
       }
